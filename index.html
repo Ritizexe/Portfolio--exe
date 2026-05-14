@@ -1,0 +1,947 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Ritiz.exe</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+
+<style>
+
+/* Reset */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    scroll-behavior:smooth;
+}
+
+/* Body */
+
+body{
+    font-family:'Poppins',sans-serif;
+    background:#050816;
+    color:white;
+    overflow-x:hidden;
+}
+
+/* Animated Cyberpunk Background */
+
+body::before{
+    content:'';
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+
+    background:
+    radial-gradient(circle at top left,#00ffff22,transparent 25%),
+    radial-gradient(circle at bottom right,#ff00ff22,transparent 25%),
+    linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+
+    background-size:
+    cover,
+    cover,
+    50px 50px,
+    50px 50px;
+
+    animation:bgMove 12s linear infinite;
+
+    z-index:-2;
+}
+
+@keyframes bgMove{
+    from{
+        transform:translateY(0);
+    }
+    to{
+        transform:translateY(-60px);
+    }
+}
+
+/* Scrollbar */
+
+::-webkit-scrollbar{
+    width:10px;
+}
+
+::-webkit-scrollbar-track{
+    background:#050816;
+}
+
+::-webkit-scrollbar-thumb{
+    background:linear-gradient(#00ffff,#ff00ff);
+    border-radius:20px;
+}
+
+/* Navbar */
+
+nav{
+    position:fixed;
+    width:100%;
+    top:0;
+    left:0;
+
+    padding:20px 10%;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    background:rgba(0,0,0,0.2);
+
+    backdrop-filter:blur(15px);
+
+    z-index:999;
+}
+
+.logo{
+    font-family:'Orbitron',sans-serif;
+    font-size:1.5rem;
+    color:#00ffff;
+    text-shadow:0 0 15px cyan;
+}
+
+nav ul{
+    display:flex;
+    gap:25px;
+    list-style:none;
+}
+
+nav a{
+    text-decoration:none;
+    color:white;
+    transition:.4s;
+}
+
+nav a:hover{
+    color:#00ffff;
+    text-shadow:0 0 10px cyan;
+}
+
+/* Hero */
+
+.hero{
+    min-height:100vh;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    text-align:center;
+
+    padding:120px 20px;
+
+    position:relative;
+}
+
+/* Floating Particles */
+
+.hero::before{
+    content:'';
+
+    position:absolute;
+
+    width:100%;
+    height:100%;
+
+    background:
+    radial-gradient(circle,#00ffff55 2px,transparent 2px);
+
+    background-size:80px 80px;
+
+    opacity:0.2;
+
+    animation:floatParticles 15s linear infinite;
+}
+
+@keyframes floatParticles{
+    from{
+        transform:translateY(0);
+    }
+    to{
+        transform:translateY(-120px);
+    }
+}
+
+.hero-content{
+    position:relative;
+    z-index:2;
+    max-width:900px;
+
+    animation:fadeUp 1.5s ease;
+}
+
+/* Avatar */
+
+.avatar-glow{
+    display:flex;
+    justify-content:center;
+    margin-bottom:30px;
+}
+
+.avatar-circle{
+    width:120px;
+    height:120px;
+
+    border-radius:50%;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    font-size:3rem;
+
+    font-family:'Orbitron',sans-serif;
+
+    border:2px solid #00ffff;
+
+    background:rgba(255,255,255,0.05);
+
+    box-shadow:
+    0 0 20px #00ffff,
+    0 0 60px rgba(0,255,255,0.5);
+
+    animation:pulse 3s infinite;
+}
+
+@keyframes pulse{
+
+0%{
+    box-shadow:
+    0 0 20px #00ffff,
+    0 0 60px rgba(0,255,255,0.5);
+}
+
+50%{
+    box-shadow:
+    0 0 40px #ff00ff,
+    0 0 100px rgba(255,0,255,0.5);
+}
+
+100%{
+    box-shadow:
+    0 0 20px #00ffff,
+    0 0 60px rgba(0,255,255,0.5);
+}
+
+}
+
+/* Hero Text */
+
+.hero h1{
+    font-size:4rem;
+
+    font-family:'Orbitron',sans-serif;
+
+    background:linear-gradient(90deg,#00ffff,#ff00ff);
+
+    -webkit-background-clip:text;
+
+    -webkit-text-fill-color:transparent;
+}
+
+.hero h2{
+    margin-top:10px;
+    color:#00ffff;
+}
+
+.hero p{
+    margin-top:20px;
+    color:#ccc;
+    font-size:1.2rem;
+}
+
+.typing{
+    color:#00ffff;
+    font-weight:bold;
+}
+
+/* Buttons */
+
+.btns{
+    margin-top:35px;
+}
+
+.btn{
+    display:inline-block;
+
+    margin:10px;
+
+    padding:14px 30px;
+
+    border-radius:40px;
+
+    text-decoration:none;
+
+    color:white;
+
+    background:rgba(255,255,255,0.05);
+
+    border:1px solid rgba(255,255,255,0.1);
+
+    backdrop-filter:blur(10px);
+
+    transition:.4s;
+
+    box-shadow:0 0 15px rgba(0,255,255,0.2);
+}
+
+.btn:hover{
+    transform:translateY(-5px);
+
+    background:#00ffff;
+    color:black;
+
+    box-shadow:0 0 30px cyan;
+}
+
+/* Sections */
+
+section{
+    padding:100px 10%;
+}
+
+.section-title{
+    text-align:center;
+
+    margin-bottom:50px;
+
+    font-size:2.5rem;
+
+    font-family:'Orbitron',sans-serif;
+
+    color:#00ffff;
+}
+
+/* Glass Cards */
+
+.glass{
+    background:rgba(255,255,255,0.05);
+
+    border:1px solid rgba(255,255,255,0.1);
+
+    border-radius:20px;
+
+    padding:30px;
+
+    backdrop-filter:blur(15px);
+
+    transition:.5s;
+}
+
+.glass:hover{
+    transform:translateY(-10px);
+
+    box-shadow:0 0 25px rgba(0,255,255,0.3);
+}
+
+/* Skills Grid */
+
+.skills-grid{
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+
+    gap:25px;
+}
+
+/* Timeline */
+
+.timeline{
+    border-left:3px solid #00ffff;
+    padding-left:20px;
+}
+
+.timeline-item{
+    margin-bottom:30px;
+}
+
+/* Quote */
+
+.quote{
+    text-align:center;
+    font-size:1.5rem;
+    line-height:1.8;
+    color:#ddd;
+}
+
+/* Socials */
+
+.socials{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:20px;
+    margin-top:30px;
+}
+
+.socials a{
+    text-decoration:none;
+
+    color:white;
+
+    padding:15px 25px;
+
+    border-radius:15px;
+
+    background:rgba(255,255,255,0.05);
+
+    border:1px solid rgba(255,255,255,0.1);
+
+    transition:.4s;
+}
+
+.socials a:hover{
+    background:#00ffff;
+    color:black;
+
+    box-shadow:0 0 20px cyan;
+}
+
+/* Contact */
+
+.contact-card{
+    margin-bottom:40px;
+}
+
+.contact-table{
+    width:100%;
+    border-collapse:collapse;
+    margin-top:20px;
+}
+
+.contact-table td{
+    padding:15px;
+    border-bottom:1px solid rgba(255,255,255,0.1);
+}
+
+.contact-table a{
+    color:#00ffff;
+    text-decoration:none;
+}
+
+.contact-buttons{
+    margin-top:25px;
+    display:flex;
+    gap:20px;
+    flex-wrap:wrap;
+}
+
+/* Contact Form */
+
+.contact-form{
+    margin-top:40px;
+}
+
+.contact-form form{
+    display:flex;
+    flex-direction:column;
+    gap:20px;
+}
+
+.contact-form input,
+.contact-form textarea{
+
+    padding:15px;
+
+    border:none;
+
+    border-radius:15px;
+
+    background:rgba(255,255,255,0.05);
+
+    color:white;
+
+    border:1px solid rgba(255,255,255,0.1);
+
+    outline:none;
+
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder{
+    color:#aaa;
+}
+
+/* Footer */
+
+footer{
+    text-align:center;
+    padding:30px;
+    color:#aaa;
+}
+
+/* Scroll Animation */
+
+.hidden{
+    opacity:0;
+    transform:translateY(50px);
+    transition:all 1s ease;
+}
+
+.show{
+    opacity:1;
+    transform:translateY(0);
+}
+
+/* Fade */
+
+@keyframes fadeUp{
+    from{
+        opacity:0;
+        transform:translateY(40px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+/* Responsive */
+
+@media(max-width:768px){
+
+.hero h1{
+    font-size:2.5rem;
+}
+
+nav{
+    padding:15px 5%;
+}
+
+nav ul{
+    gap:15px;
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- Navbar -->
+
+<nav>
+
+<div class="logo">
+Ritiz.exe
+</div>
+
+<ul>
+
+<li><a href="#about">About</a></li>
+
+<li><a href="#skills">Skills</a></li>
+
+<li><a href="#education">Education</a></li>
+
+<li><a href="#sports">Sports</a></li>
+
+<li><a href="#contact">Contact</a></li>
+
+</ul>
+
+</nav>
+
+<!-- Hero -->
+
+<section class="hero">
+
+<div class="hero-content">
+
+<div class="avatar-glow">
+
+<div class="avatar-circle">
+R
+</div>
+
+</div>
+
+<h1>
+Ritij Basnet
+</h1>
+
+<h2>
+Ritiz.exe
+</h2>
+
+<p>
+📍 Kathmandu, Nepal
+</p>
+
+<p>
+<span class="typing"></span>
+</p>
+
+<p>
+Creative Mind. Future C.A. Tech Enthusiast.
+</p>
+
+<div class="btns">
+
+<a href="#about" class="btn">
+Explore
+</a>
+
+<a href="#contact" class="btn">
+Connect
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- About -->
+
+<section id="about" class="hidden">
+
+<h2 class="section-title">
+About Me
+</h2>
+
+<div class="glass">
+
+<p>
+
+I am Ritij Basnet, also known as Ritiz — a passionate student from Nepal with strong interest in technology, futuristic design, innovation, and creativity. I aspire to become a Chartered Accountant (C.A.) while continuing to explore the digital world and modern cyberpunk aesthetics.
+
+</p>
+
+</div>
+
+</section>
+
+<!-- Skills -->
+
+<section id="skills" class="hidden">
+
+<h2 class="section-title">
+Skills
+</h2>
+
+<div class="skills-grid">
+
+<div class="glass">
+Creative Thinking
+</div>
+
+<div class="glass">
+Communication
+</div>
+
+<div class="glass">
+Leadership
+</div>
+
+<div class="glass">
+Problem Solving
+</div>
+
+<div class="glass">
+Technology Enthusiasm
+</div>
+
+<div class="glass">
+Teamwork
+</div>
+
+</div>
+
+</section>
+
+<!-- Education -->
+
+<section id="education" class="hidden">
+
+<h2 class="section-title">
+Education
+</h2>
+
+<div class="timeline glass">
+
+<div class="timeline-item">
+
+<h3>
+Class 12 Student
+</h3>
+
+<p>
+Management Stream
+</p>
+
+</div>
+
+<div class="timeline-item">
+
+<h3>
+Future Goal
+</h3>
+
+<p>
+Chartered Accountant (C.A.)
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- Sports -->
+
+<section id="sports" class="hidden">
+
+<h2 class="section-title">
+Sports Inspiration
+</h2>
+
+<div class="skills-grid">
+
+<div class="glass">
+
+<h3>
+F1 Inspiration
+</h3>
+
+<p>
+Max Verstappen
+</p>
+
+<small style="color:#aaa;">
+Precision, focus, and dominance.
+</small>
+
+</div>
+
+<div class="glass">
+
+<h3>
+Cricket Inspiration
+</h3>
+
+<p>
+Virat Kohli
+</p>
+
+<small style="color:#aaa;">
+Discipline, passion, and consistency.
+</small>
+
+</div>
+
+<div class="glass">
+
+<h3>
+Philosophy
+</h3>
+
+<p>
+“Success is built quietly through discipline, vision, and consistency.”
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- Quote -->
+
+<section class="hidden">
+
+<h2 class="section-title">
+Quote
+</h2>
+
+<div class="glass quote">
+
+“Dream beyond limits, work beyond expectations, and create a future that speaks for itself.”
+
+</div>
+
+</section>
+
+<!-- Contact -->
+
+<section id="contact" class="hidden">
+
+<h2 class="section-title">
+Connect With Me
+</h2>
+
+<div class="glass contact-card">
+
+<h3 style="margin-bottom:20px;color:#00ffff;">
+Contact Information
+</h3>
+
+<table class="contact-table">
+
+<tr>
+
+<td>
+📞 Phone
+</td>
+
+<td>
+
+<a href="tel:9765006247">
+9765006247
+</a>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+📧 Email
+</td>
+
+<td>
+
+<a href="mailto:basnetritiz@gmail.com">
+basnetritiz@gmail.com
+</a>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+📍 Location
+</td>
+
+<td>
+Kathmandu, Nepal
+</td>
+
+</tr>
+
+</table>
+
+<div class="contact-buttons">
+
+<a href="tel:9765006247" class="btn">
+Call Me
+</a>
+
+<a href="mailto:basnetritiz@gmail.com" class="btn">
+Email Me
+</a>
+
+</div>
+
+</div>
+
+<!-- Social Media -->
+
+<div class="socials">
+
+<a href="https://www.instagram.com/ritiz_018?igsh=MWN6em8yYWNydnJycg==" target="_blank">
+Instagram
+</a>
+
+<a href="https://www.facebook.com/ritiz.basnet" target="_blank">
+Facebook
+</a>
+
+</div>
+
+<!-- Contact Form -->
+
+<div class="glass contact-form">
+
+<h3 style="margin-bottom:20px;color:#00ffff;">
+Send Message
+</h3>
+
+<form>
+
+<input type="text" placeholder="Your Name" required>
+
+<input type="email" placeholder="Your Email" required>
+
+<textarea rows="5" placeholder="Your Message"></textarea>
+
+<button type="submit" class="btn">
+Send Message
+</button>
+
+</form>
+
+</div>
+
+</section>
+
+<!-- Footer -->
+
+<footer>
+
+Built by Ritiz.exe | Future C.A. | Tech Enthusiast
+
+</footer>
+
+<!-- JavaScript -->
+
+<script>
+
+/* Typing Animation */
+
+var typed = new Typed(".typing",{
+
+strings:[
+"Creative Thinker",
+"Future C.A.",
+"Tech Enthusiast",
+"Student"
+],
+
+typeSpeed:70,
+backSpeed:40,
+loop:true
+
+});
+
+/* Scroll Reveal */
+
+const hiddenElements = document.querySelectorAll('.hidden');
+
+const observer = new IntersectionObserver((entries)=>{
+
+entries.forEach((entry)=>{
+
+if(entry.isIntersecting){
+
+entry.target.classList.add('show');
+
+}
+
+});
+
+});
+
+hiddenElements.forEach((el)=> observer.observe(el));
+
+</script>
+
+</body>
+</html>
